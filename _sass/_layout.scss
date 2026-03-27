@@ -294,3 +294,82 @@
     max-width: 100%;
   }
 }
+
+// =========================================
+// MOBILE FIX: HOME PAGE LAYOUT
+// =========================================
+
+@media (max-width: 768px) {
+  
+  // 1. FORCE SINGLE COLUMN GRID
+  // This overrides the default 2-column layout for the terminal card
+  .terminal-card {
+    display: flex !important;       // Switch from Grid to Flex
+    flex-direction: column !important; // Stack items vertically
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box;         // Ensure padding doesn't break width
+  }
+
+  // 2. MAKE SIDEBAR FULL WIDTH
+  .sidebar {
+    width: 100% !important;
+    margin-bottom: 20px;            // Space between sidebar and main content
+    float: none !important;         // Remove any floating
+  }
+
+  // 3. MAKE CONTENT AREA FULL WIDTH
+  .content-area {
+    width: 100% !important;
+    float: none !important;
+  }
+
+  // 4. FIX THE MARQUEE (Emergency Broadcast)
+  // Prevents the scrolling text from breaking the container
+  .alert-marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .marquee-content {
+    display: inline-block;
+    // Ensure animation still works but stays within bounds
+    min-width: 100%; 
+  }
+
+  // 5. FIX LEADER CARDS GRID
+  // Stacks leader cards vertically instead of squishing them
+  .command-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px;
+  }
+
+  .leader-card {
+    width: 100% !important;
+    // Optional: Center the image/text on mobile
+    align-items: center; 
+    text-align: center;
+  }
+  
+  // Fix the octagon mask size on mobile if needed
+  .octagon-mask {
+    width: 100px;  // Smaller image on mobile
+    height: 100px;
+    margin: 0 auto 10px auto; // Center it
+  }
+
+  // 6. PREVENT HORIZONTAL SCROLLING
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  // Ensure images never exceed screen width
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

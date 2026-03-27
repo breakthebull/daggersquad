@@ -20,11 +20,6 @@ sass:
   sass_dir: _sass
   style: compressed # Smaller CSS file = faster loading
 
-# --- 4. DATA SETTINGS (CRITICAL FOR YOUR YAML FILES) ---
-collections:
-  data:
-    output: false # Don't publish data files as web pages
-
 # --- 5. DEFAULTS (Stop repeating 'layout: default' in every file) ---
 defaults:
   - scope:
@@ -42,10 +37,3 @@ exclude:
   - .sass-cache/
   - .jekyll-cache/
   - Gemfile.lock
-  - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - README.md
-  - .gitignore

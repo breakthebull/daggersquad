@@ -1,5 +1,9 @@
 // _sass/_layout.scss
 
+// =========================================
+// 1. MAIN WRAPPER & HEADER
+// =========================================
+
 .terminal-wrapper {
   width: 100%;
   max-width: 1200px;
@@ -8,6 +12,7 @@
   gap: 25px;
   position: relative;
   z-index: 10;
+  margin: 0 auto; // Center the wrapper itself
 }
 
 .terminal-header {
@@ -15,14 +20,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
-
-  // Glass Header
   background: rgba(2, 4, 10, 0.8);
   backdrop-filter: blur(10px);
   border-bottom: 2px solid $hd-gold;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-
-  // Angled corners for sci-fi look
   clip-path: polygon(0 0, 100% 0, 100% 75%, 98% 100%, 2% 100%, 0 75%);
 
   h1 {
@@ -33,25 +34,27 @@
     margin: 0;
     text-shadow: 0 0 10px rgba($hd-gold, 0.6);
     letter-spacing: 2px;
-
-    span {
-        color: $hd-gold;
-    }
+    span { color: $hd-gold; }
   }
 
   .subtitle {
-      color: $hd-cyan;
-      font-size: 0.9rem;
-      letter-spacing: 3px;
-      text-shadow: 0 0 5px $hd-cyan;
-      display: block;
-      margin-top: 5px;
+    color: $hd-cyan;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 5px $hd-cyan;
+    display: block;
+    margin-top: 5px;
   }
 }
+
+// =========================================
+// 2. NAVIGATION
+// =========================================
 
 .main-nav {
   display: flex;
   gap: 25px;
+  align-items: center;
 }
 
 .nav-link {
@@ -63,6 +66,7 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   position: relative;
+  white-space: nowrap;
 
   &:visited { color: $hd-white; }
 
@@ -75,8 +79,6 @@
   &.active {
     color: $hd-gold;
     text-shadow: 0 0 15px $hd-gold;
-
-    // Little underline indicator
     &::after {
         content: '';
         position: absolute;
@@ -90,24 +92,25 @@
   }
 }
 
-// Existing Red Pulse
+// =========================================
+// 3. LIVE DOT ANIMATION
+// =========================================
+
 .live-dot {
   display: inline-block;
   width: 8px;
   height: 8px;
-  background-color: $hd-red; // Default to Red (Offline)
+  background-color: $hd-red;
   border-radius: 50%;
   margin-left: 6px;
   box-shadow: 0 0 5px $hd-red;
   animation: pulse-red 1.5s infinite;
-  transition: all 0.5s ease; // Smooth color change
-  flex-shrink: 0; // CRITICAL: Prevents the dot from squishing
-  margin: 0;      // Remove default margins, use gap in parent instead
+  transition: all 0.5s ease;
+  flex-shrink: 0;
 }
 
-// New Green Pulse (Added via JS when live)
 .live-dot.is-live {
-  background-color: #0f0; // Bright Green
+  background-color: #0f0;
   box-shadow: 0 0 8px #0f0;
   animation: pulse-green 1.5s infinite;
 }
@@ -124,18 +127,16 @@
   100% { opacity: 1; transform: scale(1); box-shadow: 0 0 5px #0f0; }
 }
 
-// THE MAIN HOLOGRAPHIC CARD
-
-// _sass/_layout.scss
+// =========================================
+// 4. MAIN TERMINAL CARD (GRID SYSTEM)
+// =========================================
 
 .terminal-card {
   display: grid;
   // DEFAULT: Sidebar (280px) + Content (Rest)
-  // This applies to the Home Page automatically because it has an <aside>
   grid-template-columns: 280px 1fr;
   gap: 25px;
 
-  // Glassmorphism & Borders
   background: $glass-bg;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -171,205 +172,137 @@
       }
   }
 
-  // --- EXCEPTION: ENLIST & INTEL PAGES ---
-  // If the direct child is our specific centered containers, force single column
+  // EXCEPTION: Full Width for Specific Pages
   &:has(> .enlist-container),
   &:has(> .intel-container),
   &:has(> .comms-container),
   &:has(> .watch-container) {
-    grid-template-columns: 1fr; // Remove sidebar column
-    justify-items: center;      // Center content
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 }
 
-// =========================================
-// MOBILE RESPONSIVENESS FIX
-// Add this to the BOTTOM of _sass/_layout.scss
-// =========================================
-
-@media (max-width: 768px) {
-  
-  // 1. Stack Sidebar and Content Vertically
-  .terminal-card {
-    grid-template-columns: 1fr !important; // Force single column
-    gap: 20px;
-    padding: 10px;
-  }
-
-  // 2. Make Sidebar Full Width & Sticky (Optional)
-  .sidebar {
-    width: 100%;
-    margin-bottom: 20px;
-    // Optional: Make sidebar sticky so nav stays visible?
-    // position: sticky; top: 0; z-index: 100; 
-  }
-
-  // 3. Adjust Navigation for Mobile
-  .main-nav {
-    flex-wrap: wrap; // Allow links to wrap to next line
-    justify-content: center; // Center them
-    gap: 10px;
-    padding: 10px 0;
-  }
-
-  .nav-link {
-    font-size: 1rem; // Slightly smaller text for nav
-    padding: 5px 10px;
-    white-space: nowrap;
-  }
-
-  // 4. Fix Header Logo
-  .logo-area h1 {
-    font-size: 1.5rem; // Smaller logo text
-  }
-  .subtitle {
-    font-size: 0.7rem;
-    display: block; // Put subtitle on new line
-  }
-
-  // 5. Fix Leader Grid (Commanders)
-  .command-grid {
-    grid-template-columns: 1fr !important; // Stack leaders vertically
-    gap: 20px;
-  }
-  
-  .leader-card {
-    flex-direction: row; // Keep image left, text right on mobile? Or column?
-    // If you want them stacked:
-    // flex-direction: column; 
-    // align-items: center;
-    // text-align: center;
-  }
-
-  // 6. Fix Stats Panels (Intel Page)
-  .intel-dashboard-row {
-    flex-direction: column !important; // Stack stats and loadouts
-  }
-  
-  .stats-panel-compact, .loadout-panel-compact {
-    width: 100% !important;
-  }
-
-  // 7. Fix Modal (Leader Profile)
-  .modal-terminal {
-    width: 95% !important;
-    max-height: 90vh !important;
-    padding: 15px !important;
-  }
-  
-  .modal-stats-grid {
-    grid-template-columns: 1fr !important; // Stack stats in modal
-  }
-
-  // 8. Prevent Horizontal Scroll (Critical!)
-  body {
-    overflow-x: hidden;
-    width: 100%;
-  }
-  
-  img {
-    max-width: 100%; // Ensure images never exceed screen width
-    height: auto;
-  }
-}
-
-// Force these containers to span full width and center themselves
-.enlist-container, .intel-container, .comms-container, .watch-container {
-  grid-column: 1 / -1; // Span across all columns
+// Force specific containers to span full width
+.enlist-container, 
+.intel-container, 
+.comms-container, 
+.watch-container {
+  grid-column: 1 / -1;
   width: 100%;
-  max-width: 1200px;   // Cap width so it doesn't stretch too far
-  margin: 0 auto;      // Center horizontally
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-// Mobile Responsiveness
+// =========================================
+// 5. MOBILE RESPONSIVENESS (CONSOLIDATED)
+// =========================================
+
 @media (max-width: 900px) {
-  .terminal-card {
-    grid-template-columns: 1fr; // Stack sidebar on top for mobile
+  // Switch Header to Column on very small screens
+  .terminal-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    clip-path: none; // Remove angled cut on mobile for better space
+    border-radius: 0 0 10px 10px;
   }
 
-  .enlist-container, .intel-container {
-    max-width: 100%;
+  .logo-area h1 {
+    font-size: 2.5rem;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
   }
 }
 
-// =========================================
-// MOBILE FIX: HOME PAGE LAYOUT
-// =========================================
-
 @media (max-width: 768px) {
-  
-  // 1. FORCE SINGLE COLUMN GRID
-  // This overrides the default 2-column layout for the terminal card
+  // 1. FORCE SINGLE COLUMN GRID FOR HOME PAGE
   .terminal-card {
-    display: flex !important;       // Switch from Grid to Flex
-    flex-direction: column !important; // Stack items vertically
-    width: 100% !important;
-    padding: 10px !important;
-    box-sizing: border-box;         // Ensure padding doesn't break width
+    display: grid !important; // Keep as Grid, just change columns
+    grid-template-columns: 1fr !important; // Stack sidebar on top of content
+    gap: 20px;
+    padding: 15px;
   }
 
-  // 2. MAKE SIDEBAR FULL WIDTH
+  // 2. SIDEBAR FULL WIDTH
   .sidebar {
-    width: 100% !important;
-    margin-bottom: 20px;            // Space between sidebar and main content
-    float: none !important;         // Remove any floating
+    width: 100%;
+    margin-bottom: 25px;
+    // Optional: Add a bottom border to separate from content on mobile
+    border-bottom: 1px solid rgba($hd-cyan, 0.3);
+    padding-bottom: 20px;
   }
 
-  // 3. MAKE CONTENT AREA FULL WIDTH
+  // 3. CONTENT AREA FULL WIDTH
   .content-area {
-    width: 100% !important;
-    float: none !important;
+    width: 100%;
   }
 
-  // 4. FIX THE MARQUEE (Emergency Broadcast)
-  // Prevents the scrolling text from breaking the container
+  // 4. FIX MARQUEE
   .alert-marquee {
     width: 100%;
     overflow: hidden;
-    white-space: nowrap;
-  }
-  
-  .marquee-content {
-    display: inline-block;
-    // Ensure animation still works but stays within bounds
-    min-width: 100%; 
   }
 
-  // 5. FIX LEADER CARDS GRID
-  // Stacks leader cards vertically instead of squishing them
+  // 5. FIX LEADER CARDS
   .command-grid {
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
   }
 
   .leader-card {
-    width: 100% !important;
-    // Optional: Center the image/text on mobile
-    align-items: center; 
+    width: 100%;
+    display: flex;
+    flex-direction: column; // Stack image above text
+    align-items: center;
     text-align: center;
   }
-  
-  // Fix the octagon mask size on mobile if needed
+
   .octagon-mask {
-    width: 100px;  // Smaller image on mobile
+    width: 100px;
     height: 100px;
-    margin: 0 auto 10px auto; // Center it
+    margin: 0 auto 15px auto;
   }
 
-  // 6. PREVENT HORIZONTAL SCROLLING
+  // 6. FIX MODAL
+  .modal-terminal {
+    width: 95% !important;
+    max-height: 90vh !important;
+    padding: 15px !important;
+    clip-path: none; // Remove cut corner on mobile
+  }
+
+  .modal-stats-grid {
+    grid-template-columns: 1fr !important; // Stack stats
+  }
+  
+  .modal-image-top {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px auto;
+  }
+
+  // 7. PREVENT HORIZONTAL SCROLL
   body, html {
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
   }
-  
-  // Ensure images never exceed screen width
+
   img {
     max-width: 100%;
     height: auto;
+    display: block; // Removes tiny gap below images
   }
 }

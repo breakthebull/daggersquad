@@ -1,0 +1,156 @@
+---
+layout: default
+title: Home
+---
+
+<aside class="sidebar">
+
+    <!-- PANEL 1: BROADCAST -->
+    <div class="panel-box">
+        <h3>// EMERGENCY BROADCAST</h3>
+        <div class="alert-marquee">
+            <div class="marquee-content">
+                <span>DAGGER SQUAD MEETING: FRIDAY 2000 HOURS</span>
+                <span>NEW WARBOUND DETECTED IN SECTOR 7</span>
+                <span>DEFEND THE SUPER EARTH COLONIES</span>
+                <span>FOR MANAGED DEMOCRACY!</span>
+                <span>DAGGER SQUAD MEETING: FRIDAY 2000 HOURS</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL 2: RSS FEED -->
+    <div class="panel-box">
+        <h3>// MINISTRY UPDATES</h3>
+        <div id="rss-feed" class="rss-container">
+            <p class="loading-text">ESTABLISHING UPLINK...</p>
+        </div>
+    </div>
+
+    <!-- PANEL 3: STRATAGEMS -->
+    <div class="panel-box">
+        <h3>// AVAILABLE STRATAGEMS</h3>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 10px;">
+            <img src="{{ '/assets/img/stratagems/eagle-strike.png' | relative_url }}" width="50" alt="Eagle" style="filter: drop-shadow(0 0 5px var(--hd-cyan));">
+            <img src="{{ '/assets/img/stratagems/orbital-laser.png' | relative_url }}" width="50" alt="Laser" style="filter: drop-shadow(0 0 5px var(--hd-cyan));">
+            <img src="{{ '/assets/img/stratagems/hellbomb.png' | relative_url }}" width="50" alt="Bomb" style="filter: drop-shadow(0 0 5px var(--hd-cyan));">
+        </div>
+    </div>
+</aside>
+
+<section class="content-area">
+    <div class="section-header" style="margin-bottom: 50px;">
+        <h2>// SQUAD COMMANDERS</h2>
+        <div class="line-accent"></div>
+    </div>
+
+    <div class="command-grid">
+        <!-- DYNAMIC LEADER LOOP -->
+        {% for leader in site.data.squad.leaders %}
+        <div class="leader-card">
+            <div class="octagon-mask">
+                {% if leader.image contains 'http' %}
+                    <img src="{{ leader.image }}" alt="{{ leader.name }}">
+                {% else %}
+                    <img src="{{ '/assets/img/leaders/' | append: leader.image | relative_url }}" alt="{{ leader.name }}">
+                {% endif %}
+            </div>
+            <div class="leader-info">
+                <!-- Added onclick and style for cursor -->
+                <h4 onclick="openLeaderProfile('{{ leader.name | escape }}')"
+                    style="cursor: pointer; transition: color 0.3s;"
+                    onmouseover="this.style.color='var(--hd-gold)'"
+                    onmouseout="this.style.color='var(--hd-white)'">
+                    {{ leader.name }}
+                </h4>
+                <span>{{ leader.role }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- HIDDEN DATA STORE FOR JAVASCRIPT (FIXED WITH ESCAPE FILTERS) -->
+    <div id="leader-data-json" style="display: none;">
+    [
+    {% for leader in site.data.squad.leaders %}
+    {
+        "name": "{{ leader.name | escape }}",
+        "role": "{{ leader.role | escape }}",
+        "image": "{% if leader.image contains 'http' %}{{ leader.image }}{% else %}{{ '/assets/img/leaders/' | append: leader.image | relative_url }}{% endif %}",
+        "primary": "{{ leader.profile.favorite_primary | escape }}",
+        "stratagem": "{{ leader.profile.favorite_stratagem | escape }}",
+        "missions": "{{ leader.profile.missions_led | escape }}",
+        "kd": "{{ leader.profile.k_d_ratio | escape }}",
+        "specialty": "{{ leader.profile.specialty | escape }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+    ]
+    </div>
+
+    <!-- LEADER PROFILE MODAL (ONLY ONE INSTANCE) -->
+    <div id="leader-modal" class="modal-overlay" onclick="closeLeaderProfile(event)">
+    <div class="modal-terminal">
+        <button class="modal-close" onclick="closeLeaderProfile(event)">✕</button>
+
+        <!-- NEW WRAPPER FOR FIXED TOP PART -->
+        <div class="modal-fixed-header">
+            <div class="modal-image-top">
+                <img id="modal-img" src="" alt="Leader Portrait">
+                <div class="image-glow"></div>
+            </div>
+
+            <div class="modal-header">
+                <h2 id="modal-name">COMMANDER NAME</h2>
+                <span id="modal-role" class="modal-role">ROLE</span>
+            </div>
+        </div>
+        <!-- END FIXED HEADER -->
+
+        <!-- SCROLLABLE BODY -->
+        <div class="modal-body">
+            <div class="modal-stats-grid">
+                <!-- Stats here -->
+                <div class="stat-box">
+                    <span class="stat-label">PRIMARY WEAPON</span>
+                    <span class="stat-value" id="modal-primary">--</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">FAVORITE STRATAGEM</span>
+                    <span class="stat-value" id="modal-stratagem">--</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">MISSIONS LED</span>
+                    <span class="stat-value" id="modal-missions">--</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">K/D RATIO</span>
+                    <span class="stat-value" id="modal-kd">--</span>
+                </div>
+                <div class="stat-box full-width">
+                    <span class="stat-label">SPECIALTY</span>
+                    <span class="stat-value" id="modal-specialty">--</span>
+                </div>
+            </div>
+
+            <div class="modal-bio-section">
+                <span class="stat-label">// SERVICE NOTES</span>
+                <p id="modal-bio" class="bio-text">Loading...</p>
+            </div>
+
+            <div class="modal-medals-section">
+                <span class="stat-label">// DECORATIONS</span>
+                <div id="modal-medals" class="medals-row">
+                    <!-- Medals injected here -->
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                // END OF FILE // CLEARANCE LEVEL 5
+            </div>
+        </div>
+        <!-- END SCROLLABLE BODY -->
+
+    </div>
+</div>
+
+</section>

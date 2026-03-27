@@ -1,0 +1,51 @@
+# --- 1. SITE IDENTITY ---
+title: Dagger Squad
+description: "Helldivers 2 Clan Terminal | For Super Earth and Managed Democracy."
+baseurl: ""
+url: "" # Add your domain later (e.g., https://daggersquad.com)
+
+# --- 2. SOCIAL & SHARING (For Discord Previews) ---
+# Even without Twitter, these help generate nice cards when sharing links
+github_username: breakthebull
+twitch_channel: "NobleSwordDom" # e.g., "shroud" or "helldivers2"
+twitch_parent: "localhost" # Change this to your domain name when you deploy (e.g., "daggersquad.com")
+
+# --- 3. BUILD SETTINGS ---
+plugins:
+  - jekyll-feed      # Keeps the RSS feed logic available
+  - jekyll-sitemap   # Auto-generates sitemap.xml for SEO
+  - jekyll-seo-tag   # Auto-generates meta tags for Google/Discord
+
+sass:
+  sass_dir: _sass
+  style: compressed # Smaller CSS file = faster loading
+
+# --- 4. DATA SETTINGS (CRITICAL FOR YOUR YAML FILES) ---
+collections:
+  data:
+    output: false # Don't publish data files as web pages
+
+# --- 5. DEFAULTS (Stop repeating 'layout: default' in every file) ---
+defaults:
+  - scope:
+      path: "" # Applies to all files
+    values:
+      layout: "default"
+      image: "/assets/img/bg/space-deck.jpg" # Default social share image
+
+# --- 6. PERMALINKS (Clean URLs) ---
+permalink: pretty
+# Turns 'about.html' into 'about/' automatically
+
+# --- EXCLUDES (Keep these to avoid uploading junk files) ---
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - .gitignore

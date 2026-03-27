@@ -86,3 +86,21 @@ body::after {
 .c {
   will-change: transform, opacity;
 }
+
+body {
+  font-size: 16px; // Base size for readability
+  line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 15px; // Slightly smaller but still readable
+  }
+}
+
+// Ensure code/mono text doesn't get too tiny
+code, pre, .font-mono {
+  font-size: 0.9em;
+  
+  @media (max-width: 768px) {
+    font-size: 1em; // Scale up slightly on mobile
+  }
+}

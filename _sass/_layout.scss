@@ -182,6 +182,97 @@
   }
 }
 
+// =========================================
+// MOBILE RESPONSIVENESS FIX
+// Add this to the BOTTOM of _sass/_layout.scss
+// =========================================
+
+@media (max-width: 768px) {
+  
+  // 1. Stack Sidebar and Content Vertically
+  .terminal-card {
+    grid-template-columns: 1fr !important; // Force single column
+    gap: 20px;
+    padding: 10px;
+  }
+
+  // 2. Make Sidebar Full Width & Sticky (Optional)
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+    // Optional: Make sidebar sticky so nav stays visible?
+    // position: sticky; top: 0; z-index: 100; 
+  }
+
+  // 3. Adjust Navigation for Mobile
+  .main-nav {
+    flex-wrap: wrap; // Allow links to wrap to next line
+    justify-content: center; // Center them
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .nav-link {
+    font-size: 1rem; // Slightly smaller text for nav
+    padding: 5px 10px;
+    white-space: nowrap;
+  }
+
+  // 4. Fix Header Logo
+  .logo-area h1 {
+    font-size: 1.5rem; // Smaller logo text
+  }
+  .subtitle {
+    font-size: 0.7rem;
+    display: block; // Put subtitle on new line
+  }
+
+  // 5. Fix Leader Grid (Commanders)
+  .command-grid {
+    grid-template-columns: 1fr !important; // Stack leaders vertically
+    gap: 20px;
+  }
+  
+  .leader-card {
+    flex-direction: row; // Keep image left, text right on mobile? Or column?
+    // If you want them stacked:
+    // flex-direction: column; 
+    // align-items: center;
+    // text-align: center;
+  }
+
+  // 6. Fix Stats Panels (Intel Page)
+  .intel-dashboard-row {
+    flex-direction: column !important; // Stack stats and loadouts
+  }
+  
+  .stats-panel-compact, .loadout-panel-compact {
+    width: 100% !important;
+  }
+
+  // 7. Fix Modal (Leader Profile)
+  .modal-terminal {
+    width: 95% !important;
+    max-height: 90vh !important;
+    padding: 15px !important;
+  }
+  
+  .modal-stats-grid {
+    grid-template-columns: 1fr !important; // Stack stats in modal
+  }
+
+  // 8. Prevent Horizontal Scroll (Critical!)
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  img {
+    max-width: 100%; // Ensure images never exceed screen width
+    height: auto;
+  }
+}
+
 // Force these containers to span full width and center themselves
 .enlist-container, .intel-container, .comms-container, .watch-container {
   grid-column: 1 / -1; // Span across all columns

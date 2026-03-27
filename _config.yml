@@ -8,7 +8,7 @@ baseurl: "/daggersquad"  # IMPORTANT: Add your repo name here with a slash
 # Even without Twitter, these help generate nice cards when sharing links
 github_username: breakthebull
 twitch_channel: "NobleSwordDom" # e.g., "shroud" or "helldivers2"
-twitch_parent: "localhost" # Change this to your domain name when you deploy (e.g., "daggersquad.com")
+twitch_parent: "https://breakthebull.github.io/daggersquad" # Change this to your domain name when you deploy (e.g., "daggersquad.com")
 
 # --- 3. BUILD SETTINGS ---
 plugins:

@@ -1,8 +1,8 @@
 # --- 1. SITE IDENTITY ---
 title: Dagger Squad
 description: "Helldivers 2 Clan Terminal | For Super Earth and Managed Democracy."
-baseurl: ""
-url: "" # Add your domain later (e.g., https://daggersquad.com)
+url: "https://breakthebull.github.io"
+baseurl: "/daggersquad"  # IMPORTANT: Add your repo name here with a slash
 
 # --- 2. SOCIAL & SHARING (For Discord Previews) ---
 # Even without Twitter, these help generate nice cards when sharing links

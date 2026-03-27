@@ -1,4 +1,12 @@
-# 🪂 Dagger Squad Terminal | Helldivers 2 Clan Website
+# Dagger Squad Terminal | Helldivers 2 Clan Website
+
+| Home Dashboard | Intel Dossier |
+| :---: | :---: |
+| ![Home Page Preview](https://github.com/breakthebull/daggersquad/blob/main/home.png) | ![Intel Page Preview](https://github.com/breakthebull/daggersquad/blob/main/intel.png) |
+
+| Comms Terminal | Enlistment Form |
+| :---: | :---: |
+| ![Comms Page Preview](https://github.com/breakthebull/daggersquad/blob/main/comms.png) | ![Enlist Page Preview](https://github.com/breakthebull/daggersquad/blob/main/enlist.png) |
 
 A high-performance, static website built with **Jekyll** for the **Dagger Squad** Helldivers 2 clan.
 
@@ -8,7 +16,7 @@ Features a holographic "Super Earth" UI, dynamic data-driven content, live Twitc
 
 ---
 
-## 🚀 Features
+## Features
 
 *   **Dynamic Data System:** All squad info (Leaders, Stats, Loadouts, Story) is stored in a single YAML file. No coding required to update content.
 *   **Live Twitch Integration:** Dedicated "Live Feed" page with auto-detecting embed.
@@ -19,7 +27,7 @@ Features a holographic "Super Earth" UI, dynamic data-driven content, live Twitc
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 *   **Generator:** Jekyll (Static Site Generator)
 *   **Styling:** SCSS / Sass
@@ -29,7 +37,7 @@ Features a holographic "Super Earth" UI, dynamic data-driven content, live Twitc
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 /

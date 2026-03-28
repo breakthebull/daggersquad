@@ -573,6 +573,62 @@
 }
 
 // =========================================
+// HUB PAGE & HONEYCOMB GRID
+// =========================================
+
+.hub-container {
+  width: 100%; max-width: 1000px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; padding: 20px;
+}
+
+.honeycomb-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  justify-items: center; align-items: center; margin-top: 40px;
+  @media (max-width: 768px) { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.hub-node {
+  cursor: pointer; transition: transform 0.3s ease;
+  &:hover { transform: scale(1.05); .hub-octagon { box-shadow: 0 0 25px var(--hd-cyan); border-color: var(--hd-cyan); } }
+  @media (min-width: 769px) {
+    &:nth-child(1) { transform: translateY(40px); }
+    &:nth-child(2) { transform: translateY(-20px); z-index: 2; }
+    &:nth-child(3) { transform: translateY(40px); }
+  }
+}
+
+.hub-octagon {
+  width: 180px; height: 180px; position: relative;
+  border: 3px solid var(--hd-gold); background: rgba(0,0,0,0.6);
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  overflow: hidden; transition: all 0.3s ease;
+  img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); transition: 0.3s; }
+  &:hover img { filter: grayscale(0%); }
+  .hub-overlay {
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 10px; text-align: center;
+    .hub-label { font-family: var(--font-head); font-size: 0.8rem; color: var(--hd-cyan); text-transform: uppercase; }
+  }
+}
+
+.launch-pad-section {
+  margin-top: 25px; padding: 20px;
+  background: rgba(0, 240, 255, 0.03); border: 1px dashed rgba(0, 240, 255, 0.3);
+  text-align: center;
+}
+
+.launch-btn {
+  display: flex; justify-content: center; align-items: center; gap: 10px;
+  width: 100%; padding: 15px; background: #000; color: #fff;
+  text-decoration: none; text-transform: uppercase; font-family: var(--font-head);
+  clip-path: polygon(5% 0, 100% 0, 100% 70%, 95% 100%, 0 100%, 0 30%);
+  border: 2px solid #333; transition: 0.3s;
+  &:hover { background: #111; transform: translateY(-3px); filter: brightness(1.2); }
+  .btn-icon { font-size: 1.4rem; }
+}
+
+// =========================================
 // 3. INTEL PAGE STYLES (DASHBOARD LAYOUT)
 // =========================================
 

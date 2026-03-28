@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
     <!-- COMPILED CSS -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
 </head>
 <body style="background-image: linear-gradient(to bottom, rgba(2, 4, 10, 0.85), rgba(2, 4, 10, 0.95)), url('{{ '/assets/img/bg/space-deck.jpg' | relative_url }}'); background-size: cover; background-position: center; background-attachment: fixed;">
 
@@ -32,6 +32,7 @@
                 <a href="{{ '/about/' | relative_url }}" class="nav-link {% if page.url == '/about/' %}active{% endif %}">INTEL</a>
                 <a href="{{ '/join/' | relative_url }}" class="nav-link {% if page.url == '/join/' %}active{% endif %}">ENLIST</a>
                 <a href="{{ '/contact/' | relative_url }}" class="nav-link {% if page.url == '/contact/' %}active{% endif %}">COMMS</a>
+                <a href="{{ '/hub/' | relative_url }}" class="nav-link {% if page.url == '/hub/' %}active{% endif %}">HUBS</a>
                 <a href="{{ '/watch/' | relative_url }}" class="nav-link {% if page.url == '/watch/' %}active{% endif %}">LIVE FEED<span class="live-dot"id="status-dot"></span>
                 </a>
 

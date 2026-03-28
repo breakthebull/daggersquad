@@ -73,6 +73,37 @@ requirements:
     value: "ANY (TRY HARD)"
     status: "pending" # Shows yellow/orange
 
+hubs:
+  - name: "PC Division"
+    platform: "STEAM / PSN"
+    logo: "pc-logo.png"
+    commander: "CMDR. VEX" # Specific leader for this hub
+    members: "150+ Active"
+    status: "OPERATIONAL"
+    description: "Primary command center for PC Helldivers. Specializing in high-precision orbital strikes and rapid deployment strategies."
+    discord_link: "https://discord.gg/your-pc-link"
+    color_theme: "#00f0ff" # Optional: Cyan for PC
+
+  - name: "PlayStation Command"
+    platform: "PS5 / PS4"
+    logo: "ps-logo.png"
+    commander: "LT. RAX"
+    members: "200+ Active"
+    status: "OPERATIONAL"
+    description: "The backbone of Super Earth's console forces. Experts in heavy armor, defensive holds, and extraction tactics."
+    discord_link: "https://discord.gg/your-ps-link"
+    color_theme: "#0055ff" # Optional: Blue for PS
+
+  - name: "Xbox Battalion"
+    platform: "SERIES X / ONE"
+    logo: "xbox-logo.png"
+    commander: "SGT. KORA"
+    members: "120+ Active"
+    status: "OPERATIONAL"
+    description: "Rising defenders of democracy on Xbox. Known for aggressive push strategies, camaraderie, and sheer firepower."
+    discord_link: "https://discord.gg/your-xbox-link"
+    color_theme: "#00ff00" # Optional: Green for Xbox
+
 # --- SQUAD LEADERS ---
 
 leaders:

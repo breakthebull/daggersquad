@@ -1,3 +1,5 @@
+can you check my components page?
+
 // =========================================
 // 1. GLOBAL COMPONENTS
 // =========================================
@@ -989,6 +991,15 @@
 // 4. ENLIST PAGE STYLES (FORCED CENTER)
 // =========================================
 
+.enlist-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
 .status-banner {
   display: flex;
   align-items: center;
@@ -1038,14 +1049,10 @@
 }
 
 .enlist-container {
+  margin: 0 auto 30px auto;
+  text-align: center;
   width: 100%;
   max-width: 800px;
-  margin: 0 auto 30px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
 }
 
 .requirements-grid {

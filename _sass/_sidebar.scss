@@ -1,0 +1,49 @@
+// _sass/_sidebar.scss
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.panel-box {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba($hd-cyan, 0.2);
+  padding: 15px;
+  position: relative;
+  backdrop-filter: blur(5px);
+
+  // Small corner accents
+  &::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 10px; height: 10px;
+      border-top: 2px solid $hd-gold;
+      border-left: 2px solid $hd-gold;
+  }
+
+  h3 {
+    font-family: $font-head;
+    color: $hd-cyan;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba($hd-cyan, 0.3);
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba($hd-cyan, 0.4);
+  }
+}
+
+.alert-marquee {
+  background: rgba($hd-red, 0.2); // Transparent red
+  border: 1px solid $hd-red;
+  color: #ffaaaa;
+  // ... keep animation code same ...
+
+  .marquee-content span::before {
+      color: $hd-red;
+      text-shadow: 0 0 5px $hd-red;
+  }
+}

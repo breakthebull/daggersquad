@@ -1,3 +1,9 @@
+// _sass/_base.scss
+
+// =========================================
+// 1. GLOBAL RESET & BASICS
+// =========================================
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,100 +11,76 @@
 }
 
 body {
-  background-color: $hd-blue-deep;
+  // Colors & Fonts
+  background-color: $hd-blue-deep; // Fallback if image fails
   color: $hd-white;
   font-family: $font-mono;
+  font-size: 16px;
+  line-height: 1.6;
+
+  // Layout
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; // Changed from center to allow scrolling
   padding: 20px;
-  overflow-x: hidden;
+  overflow-x: hidden; // Prevent horizontal scroll
 
   // SPACE BACKGROUND
-  // Using a deep space nebula image
   background-size: cover;
   background-position: center;
   background-attachment: fixed; // Parallax effect
-
-  // Subtle animated stars could be added later, but this is a great start
+  
+  // Mobile Adjustment
+  @media (max-width: 768px) {
+    font-size: 15px;
+    padding: 10px;
+    align-items: center; // Center on mobile since content is shorter
+  }
 }
 
-// Optional: Add a subtle scanline overlay for that "screen" feel
+// Typography Scale
+code, pre, .font-mono {
+  font-size: 0.9em;
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
+}
+
+// =========================================
+// 2. SCANLINE OVERLAY (CRT Effect)
+// =========================================
+
 body::after {
   content: "";
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.1) 1px,
+    rgba(0, 0, 0, 0.15), // Slightly darker for better effect
+    rgba(0, 0, 0, 0.15) 1px,
     transparent 1px,
     transparent 2px
   );
-  pointer-events: none;
-  z-index: 9999;
+  pointer-events: none; // Click through it
+  z-index: 9000; // Below modals (9999) but above content
 }
 
 // =========================================
-// PARTICLE SWIRL BACKGROUND
+// 3. UTILITIES
 // =========================================
 
-#particle-swirl {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; // Allows clicking through the particles
-  z-index: 0; // Behind the terminal card (which is z-index 10+)
+// Helper class for text shadows if needed
+.text-glow {
+  text-shadow: 0 0 5px currentColor;
+}
+
+// Hide elements visually but keep for screen readers
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
   overflow: hidden;
-  perspective: 1000px;
-  opacity: 0.6; // Adjust transparency so it doesn't distract from text
-}
-
-.wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  transform-style: preserve-3d;
-  animation: rotate-swirl 14s infinite linear;
-}
-
-@keyframes rotate-swirl {
-  100% {
-    transform: rotateY(360deg) rotateX(360deg);
-  }
-}
-
-.c {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  opacity: 0;
-}
-
-.c {
-  will-change: transform, opacity;
-}
-
-body {
-  font-size: 16px; // Base size for readability
-  line-height: 1.6;
-  
-  @media (max-width: 768px) {
-    font-size: 15px; // Slightly smaller but still readable
-  }
-}
-
-// Ensure code/mono text doesn't get too tiny
-code, pre, .font-mono {
-  font-size: 0.9em;
-  
-  @media (max-width: 768px) {
-    font-size: 1em; // Scale up slightly on mobile
-  }
+  clip: rect(0,0,0,0);
+  border: 0;
 }

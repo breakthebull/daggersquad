@@ -176,7 +176,8 @@
   &:has(> .enlist-container),
   &:has(> .intel-container),
   &:has(> .comms-container),
-  &:has(> .watch-container) {
+  &:has(> .watch-container),
+  &:has(> .hub-container) {
     grid-template-columns: 1fr;
     justify-items: center;
   }
@@ -186,7 +187,8 @@
 .enlist-container, 
 .intel-container, 
 .comms-container, 
-.watch-container {
+.watch-container,
+.hub-container {
   grid-column: 1 / -1;
   width: 100%;
   max-width: 1200px;

@@ -1,0 +1,19 @@
+// _sass/_variables.scss
+
+// Core Colors
+$hd-blue-deep: #02040a;       // Almost black space
+$hd-blue-space: #0b1021;      // Deep navy
+$hd-gold: #ffd700;            // Liberty Gold
+$hd-red: #ff2a2a;             // Alert Crimson
+$hd-cyan: #00f0ff;            // Holographic Tech Blue
+$hd-white: #e6f2ff;           // Slightly blue-tinted white
+
+// Fonts
+$font-head: 'Bebas Neue', sans-serif;
+$font-mono: 'Share Tech Mono', monospace;
+
+// Effects
+$glass-bg: rgba(11, 16, 33, 0.65); // Transparent dark blue
+$glass-border: rgba(255, 215, 0, 0.3); // Faint gold border
+$glow-gold: 0 0 15px rgba(255, 215, 0, 0.4);
+$glow-cyan: 0 0 15px rgba(0, 240, 255, 0.4);

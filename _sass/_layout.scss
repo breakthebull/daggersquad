@@ -1,0 +1,308 @@
+// _sass/_layout.scss
+
+// =========================================
+// 1. MAIN WRAPPER & HEADER
+// =========================================
+
+.terminal-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
+  z-index: 10;
+  margin: 0 auto; // Center the wrapper itself
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: rgba(2, 4, 10, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid $hd-gold;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 98% 100%, 2% 100%, 0 75%);
+
+  h1 {
+    font-family: $font-head;
+    font-size: 3.5rem;
+    color: $hd-white;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 0 0 10px rgba($hd-gold, 0.6);
+    letter-spacing: 2px;
+    span { color: $hd-gold; }
+  }
+
+  .subtitle {
+    color: $hd-cyan;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 5px $hd-cyan;
+    display: block;
+    margin-top: 5px;
+  }
+}
+
+// =========================================
+// 2. NAVIGATION
+// =========================================
+
+.main-nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: $hd-white;
+  font-family: $font-head;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  position: relative;
+  white-space: nowrap;
+
+  &:visited { color: $hd-white; }
+
+  &:hover {
+    color: $hd-cyan;
+    text-shadow: 0 0 12px $hd-cyan;
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    color: $hd-gold;
+    text-shadow: 0 0 15px $hd-gold;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: $hd-gold;
+        box-shadow: 0 0 10px $hd-gold;
+    }
+  }
+}
+
+// =========================================
+// 3. LIVE DOT ANIMATION
+// =========================================
+
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: $hd-red;
+  border-radius: 50%;
+  margin-left: 6px;
+  box-shadow: 0 0 5px $hd-red;
+  animation: pulse-red 1.5s infinite;
+  transition: all 0.5s ease;
+  flex-shrink: 0;
+}
+
+.live-dot.is-live {
+  background-color: #0f0;
+  box-shadow: 0 0 8px #0f0;
+  animation: pulse-green 1.5s infinite;
+}
+
+@keyframes pulse-red {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-green {
+  0% { opacity: 1; transform: scale(1); box-shadow: 0 0 5px #0f0; }
+  50% { opacity: 0.6; transform: scale(1.3); box-shadow: 0 0 15px #0f0; }
+  100% { opacity: 1; transform: scale(1); box-shadow: 0 0 5px #0f0; }
+}
+
+// =========================================
+// 4. MAIN TERMINAL CARD (GRID SYSTEM)
+// =========================================
+
+.terminal-card {
+  display: grid;
+  // DEFAULT: Sidebar (280px) + Content (Rest)
+  grid-template-columns: 280px 1fr;
+  gap: 25px;
+
+  background: $glass-bg;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid $glass-border;
+  border-top: 1px solid rgba($hd-gold, 0.6);
+  border-left: 1px solid rgba($hd-cyan, 0.3);
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 0 30px rgba(0, 240, 255, 0.05);
+  position: relative;
+  min-height: 600px;
+
+  // Decorative Corners
+  &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid $hd-cyan;
+      transition: all 0.3s ease;
+      z-index: 10;
+  }
+  &::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+  &::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+  &:hover {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7), inset 0 0 40px rgba(0, 240, 255, 0.1);
+      &::before, &::after {
+          width: 30px;
+          height: 30px;
+          border-color: $hd-gold;
+          box-shadow: 0 0 10px $hd-gold;
+      }
+  }
+
+  // EXCEPTION: Full Width for Specific Pages
+  &:has(> .enlist-container),
+  &:has(> .intel-container),
+  &:has(> .comms-container),
+  &:has(> .watch-container) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+// Force specific containers to span full width
+.enlist-container, 
+.intel-container, 
+.comms-container, 
+.watch-container {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// =========================================
+// 5. MOBILE RESPONSIVENESS (CONSOLIDATED)
+// =========================================
+
+@media (max-width: 900px) {
+  // Switch Header to Column on very small screens
+  .terminal-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    clip-path: none; // Remove angled cut on mobile for better space
+    border-radius: 0 0 10px 10px;
+  }
+
+  .logo-area h1 {
+    font-size: 2.5rem;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  // 1. FORCE SINGLE COLUMN GRID FOR HOME PAGE
+  .terminal-card {
+    display: grid !important; // Keep as Grid, just change columns
+    grid-template-columns: 1fr !important; // Stack sidebar on top of content
+    gap: 20px;
+    padding: 15px;
+  }
+
+  // 2. SIDEBAR FULL WIDTH
+  .sidebar {
+    width: 100%;
+    margin-bottom: 25px;
+    // Optional: Add a bottom border to separate from content on mobile
+    border-bottom: 1px solid rgba($hd-cyan, 0.3);
+    padding-bottom: 20px;
+  }
+
+  // 3. CONTENT AREA FULL WIDTH
+  .content-area {
+    width: 100%;
+  }
+
+  // 4. FIX MARQUEE
+  .alert-marquee {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  // 5. FIX LEADER CARDS
+  .command-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .leader-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column; // Stack image above text
+    align-items: center;
+    text-align: center;
+  }
+
+  .octagon-mask {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px auto;
+  }
+
+  // 6. FIX MODAL
+  .modal-terminal {
+    width: 95% !important;
+    max-height: 90vh !important;
+    padding: 15px !important;
+    clip-path: none; // Remove cut corner on mobile
+  }
+
+  .modal-stats-grid {
+    grid-template-columns: 1fr !important; // Stack stats
+  }
+  
+  .modal-image-top {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px auto;
+  }
+
+  // 7. PREVENT HORIZONTAL SCROLL
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block; // Removes tiny gap below images
+  }
+}

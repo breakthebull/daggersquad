@@ -235,11 +235,9 @@
   }
 
   .leader-card {
-    flex-direction: row; // Keep image left, text right on mobile? Or column?
-    // If you want them stacked:
-    // flex-direction: column;
-    // align-items: center;
-    // text-align: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   // 6. Fix Stats Panels (Intel Page)

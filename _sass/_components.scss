@@ -403,7 +403,6 @@
   backdrop-filter: blur(5px);
   padding: 15px;
   margin-bottom: 20px;
-
   h3 {
     color: $hd-white;
     border-bottom: 1px solid rgba($hd-white, 0.2);
@@ -425,6 +424,7 @@
   overflow: hidden; // Hides text when it goes off-screen
   white-space: nowrap; // Forces text to stay on one line
   display: flex;
+  flex-direction: column;
   align-items: center;
   position: relative;
   box-shadow: 0 0 10px rgba($hd-red, 0.2);
@@ -989,15 +989,6 @@
 // 4. ENLIST PAGE STYLES (FORCED CENTER)
 // =========================================
 
-.enlist-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
 .status-banner {
   display: flex;
   align-items: center;
@@ -1047,10 +1038,14 @@
 }
 
 .enlist-container {
-  margin: 0 auto 30px auto;
-  text-align: center;
   width: 100%;
   max-width: 800px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
 .requirements-grid {

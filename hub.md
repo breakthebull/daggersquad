@@ -75,7 +75,7 @@ permalink: /hub/
             <!-- LAUNCH PAD BUTTON -->
             <div class="launch-pad-section">
                 <span class="stat-label">// SECURE COMMS LINK</span>
-                <a id="modal-hub-link" href="#" target="_blank" class="launch-btn">
+                <a id="modal-hub-link" href="#" target="_blank" class="launch-btn" onclick="if(typeof SFX!=='undefined')SFX.playClick()">
                     <span class="btn-text">INITIATE LAUNCH SEQUENCE</span>
                     <span class="btn-icon">🚀</span>
                 </a>
@@ -181,6 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
         void modal.offsetWidth; // Force reflow
         modal.style.opacity = '1';
         modal.querySelector('.modal-terminal').style.transform = 'scale(1)';
+        if (typeof SFX !== 'undefined') SFX.playOpen();
+
         document.body.style.overflow = 'hidden';
     };
 
@@ -189,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const modal = document.getElementById('hub-modal');
             modal.style.opacity = '0';
             modal.querySelector('.modal-terminal').style.transform = 'scale(0.9)';
+            if (typeof SFX !== 'undefined') SFX.playClose();
             setTimeout(() => {
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';

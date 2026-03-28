@@ -29,11 +29,11 @@
 
             <nav class="main-nav">
                 <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">HOME</a>
-                <a href="{{ '/about/' | relative_url }}" class="nav-link {% if page.url == '/about/' %}active{% endif %}">INTEL</a>
-                <a href="{{ '/join/' | relative_url }}" class="nav-link {% if page.url == '/join/' %}active{% endif %}">ENLIST</a>
-                <a href="{{ '/contact/' | relative_url }}" class="nav-link {% if page.url == '/contact/' %}active{% endif %}">COMMS</a>
-                <a href="{{ '/hub/' | relative_url }}" class="nav-link {% if page.url == '/hub/' %}active{% endif %}">HUBS</a>
-                <a href="{{ '/watch/' | relative_url }}" class="nav-link {% if page.url == '/watch/' %}active{% endif %}">LIVE FEED<span class="live-dot"id="status-dot"></span>
+                <a href="{{ '/about/' | relative_url }}" class="nav-link {% if page.url == '/about/' %}active{% endif %}" onclick="if(typeof SFX!=='undefined')SFX.playClick()">INTEL</a>
+                <a href="{{ '/join/' | relative_url }}" class="nav-link {% if page.url == '/join/' %}active{% endif %}" onclick="if(typeof SFX!=='undefined')SFX.playClick()">ENLIST</a>
+                <a href="{{ '/contact/' | relative_url }}" class="nav-link {% if page.url == '/contact/' %}active{% endif %}" onclick="if(typeof SFX!=='undefined')SFX.playClick()">COMMS</a>
+                <a href="{{ '/hub/' | relative_url }}" class="nav-link {% if page.url == '/hub/' %}active{% endif %}" onclick="if(typeof SFX!=='undefined')SFX.playClick()">HUBS</a>
+                <a href="{{ '/watch/' | relative_url }}" class="nav-link {% if page.url == '/watch/' %}active{% endif %}" onclick="if(typeof SFX!=='undefined')SFX.playClick()">LIVE FEED<span class="live-dot"id="status-dot"></span>
                 </a>
 
             </nav>
@@ -58,5 +58,8 @@
 
     <!-- Leader Profiles Script -->
     <script src="{{ '/assets/js/profile-modal.js' | relative_url }}"></script>
+
+    <!-- Sound Effects Generator -->
+    <script src="{{ '/assets/js/sfx.js' | relative_url }}"></script>
 </body>
 </html>

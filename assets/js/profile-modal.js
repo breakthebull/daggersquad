@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modal.style.opacity = '1';
     modal.querySelector('.modal-terminal').style.transform = 'scale(1)';
+    if (typeof SFX !== 'undefined') SFX.playOpen();
 
     // Prevent background scrolling
     document.body.style.overflow = 'hidden';
@@ -87,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Fade out
       modal.style.opacity = '0';
       modal.querySelector('.modal-terminal').style.transform = 'scale(0.9)';
+      if (typeof SFX !== 'undefined') SFX.playClose();
+
 
       // Wait for transition to finish before hiding display
       setTimeout(() => {

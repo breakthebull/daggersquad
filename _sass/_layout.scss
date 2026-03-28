@@ -251,10 +251,14 @@
   }
 
   // 4. FIX MARQUEE
-  .alert-marquee {
+  .alert-marquee, .panel-box, .stratagem-list {
     width: 100%;
-    overflow: hidden;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
+
+  .alert-marquee {
+    height: 30px;
 
   // 5. FIX LEADER CARDS
   .command-grid {

@@ -85,7 +85,7 @@ title: Home
         "specialty_planet": "{{ leader.profile.specialty_planet | escape }}",
         "bio": "{{ leader.profile.bio | escape }}",
         "quote": "{{ leader.profile.quote | escape }}",
-        "medals": "{{ leader.profile.medals | escape }}"
+        "medals": "{{ leader.profile.medals | jsonify }}"
         
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}

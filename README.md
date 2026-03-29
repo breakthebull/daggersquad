@@ -1,4 +1,7 @@
 # Dagger Squad Terminal | Helldivers 2 Clan Website
+
+![Preview](https://img.shields.io/badge/Jekyll-4.x-red?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 <a href="https://jekyll-themes.com/breakthebull/daggersquad">
   <img
     src="https://img.shields.io/badge/featured%20on-JT-red.svg"

@@ -65,9 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const quoteEl = document.getElementById('modal-quote');
     if(quoteEl) quoteEl.innerText = data.quote ? `"${data.quote}"` : "No recorded statement.";
 
-    // --- 2. Populate Bio ---
+    // --- 3. Populate Bio (Robust Fix) ---
+    const bioEl = document.getElementById('modal-bio');
     if (bioEl) {
-      bioEl.innerText = data.bio || "No service record available.";
+        // Check if data.bio exists and is not empty
+        if (data.bio && data.bio.trim() !== "") {
+            bioEl.innerText = data.bio;
+            console.log("✅ Bio loaded:", data.bio);
+        } else {
+            bioEl.innerText = "No service record available.";
+            console.warn("⚠️ No bio found for this leader.");
+        }
+    } else {
+        console.error("❌ Error: HTML element #modal-bio not found!");
     }
 
     // --- 5. Medals (Robust Fix) ---

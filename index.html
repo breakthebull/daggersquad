@@ -69,7 +69,7 @@ title: Home
         {% endfor %}
     </div>
 
-    <!-- HIDDEN DATA STORE FOR JAVASCRIPT (FIXED WITH ESCAPE FILTERS) -->
+    <!-- HIDDEN DATA STORE FOR JAVASCRIPT -->
     <div id="leader-data-json" style="display: none;">
     [
     {% for leader in site.data.squad.leaders %}
@@ -89,29 +89,26 @@ title: Home
     ]
     </div>
 
-    <!-- LEADER PROFILE MODAL (ONLY ONE INSTANCE) -->
+    <!-- LEADER PROFILE MODAL -->
     <div id="leader-modal" class="modal-overlay" onclick="closeLeaderProfile(event)">
     <div class="modal-terminal">
         <button class="modal-close" onclick="closeLeaderProfile(event)">✕</button>
 
-        <!-- NEW WRAPPER FOR FIXED TOP PART -->
+        <!-- FIXED HEADER -->
         <div class="modal-fixed-header">
             <div class="modal-image-top">
                 <img id="modal-img" src="" alt="Leader Portrait">
                 <div class="image-glow"></div>
             </div>
-
             <div class="modal-header">
                 <h2 id="modal-name">COMMANDER NAME</h2>
                 <span id="modal-role" class="modal-role">ROLE</span>
             </div>
         </div>
-        <!-- END FIXED HEADER -->
 
         <!-- SCROLLABLE BODY -->
         <div class="modal-body">
             <div class="modal-stats-grid">
-                <!-- Stats here -->
                 <div class="stat-box">
                     <span class="stat-label">PRIMARY WEAPON</span>
                     <span class="stat-value" id="modal-primary">--</span>
@@ -128,17 +125,32 @@ title: Home
                     <span class="stat-label">K/D RATIO</span>
                     <span class="stat-value" id="modal-kd">--</span>
                 </div>
-                <div class="stat-box full-width">
+                <div class="stat-box">
                     <span class="stat-label">SPECIALTY</span>
                     <span class="stat-value" id="modal-specialty">--</span>
                 </div>
+                <!-- NEW: SPECIALTY PLANET -->
+                <div class="stat-box">
+                    <span class="stat-label">OPERATIONS</span>
+                    <span class="stat-value" id="modal-specialty-planet" style="color: var(--hd-cyan);">--</span>
+                </div>
             </div>
 
+            <!-- BIO SECTION -->
             <div class="modal-bio-section">
                 <span class="stat-label">// SERVICE NOTES</span>
                 <p id="modal-bio" class="bio-text">Loading...</p>
             </div>
 
+            <!-- NEW: QUOTE SECTION -->
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255, 215, 0, 0.05); border-left: 3px solid var(--hd-gold); text-align: center;">
+                <span class="stat-label" style="display:block; margin-bottom: 8px;">// COMMANDER'S QUOTE</span>
+                <p id="modal-quote" style="font-family: var(--font-head); font-size: 1.2rem; color: var(--hd-gold); font-style: italic; margin: 0; text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);">
+                    "..."
+                </p>
+            </div>
+
+            <!-- MEDALS SECTION -->
             <div class="modal-medals-section">
                 <span class="stat-label">// DECORATIONS</span>
                 <div id="modal-medals" class="medals-row">

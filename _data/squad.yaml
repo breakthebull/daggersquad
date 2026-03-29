@@ -109,7 +109,7 @@ hubs:
 leaders:
   - name: "CMDR. Dagger-Actual"
     role: "SQUAD LEAD"
-    image: "daggeractual.jpg"
+    image: "assets/leaders/daggeractual.jpg"
     # Add these lines:
     profile:
       favorite_primary: "AR-23P Liberator Penetrator"

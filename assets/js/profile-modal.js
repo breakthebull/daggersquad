@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('modal-missions').innerText = data.missions || "0";
     document.getElementById('modal-kd').innerText = data.kd || "0.0";
     document.getElementById('modal-specialty').innerText = data.specialty || "None";
+    document.getElementById('modal-specialty_planet').innerText = data.specialty_planet || "None";
+    document.getElementById('modal-quote').innerText = data.quote || "None";
 
     // --- 2. Populate Bio (NEW) ---
     const bioElement = document.getElementById('modal-bio');

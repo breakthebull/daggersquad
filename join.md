@@ -60,7 +60,7 @@ permalink: /join/
         <p class="launch-text">// CONFIRMED? INITIATE DROP SEQUENCE //</p>
         
         {% if site.data.squad.recruitment_status == 'OPEN' or site.data.squad.recruitment_status == 'LIMITED' %}
-            <a href="{{ site.data.squad.discord_link }}" target="_blank" class="enlist-btn launch-btn">
+            <a href="{{ site.data.squad.discord_link }}" target="_blank" class="enlist-btn">
                 >> INITIATE DROP <<
             </a>
             <p class="disclaimer">* By clicking, you agree to serve Super Earth indefinitely.</p>

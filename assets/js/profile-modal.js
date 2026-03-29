@@ -70,18 +70,24 @@ document.addEventListener('DOMContentLoaded', () => {
       bioEl.innerText = data.bio || "No service record available.";
     }
 
-    // --- 3. Populate Medals ---
-    const medalsContainer = document.getElementById('modal-medals'); 
-    if (medalsContainer && data.medals) {
-      medalsContainer.innerHTML = ''; // Clear old content
-      data.medals.forEach(medal => {
-        const badge = document.createElement('span');
-        badge.className = 'medal-badge';
-        badge.innerText = medal;
-        medalsContainer.appendChild(badge);
-      });
-    } else if (medalsContainer) {
-      medalsContainer.innerHTML = '<span style="color:#666; font-style:italic;">No decorations recorded.</span>';
+    // --- 5. Medals (Robust Fix) ---
+    const medalsContainer = document.getElementById('modal-medals');
+    if(medalsContainer) {
+        medalsContainer.innerHTML = ''; // Clear existing
+        
+        // Check if data.medals exists and is an array
+        if(data.medals && Array.isArray(data.medals) && data.medals.length > 0) {
+            data.medals.forEach(medal => {
+                const badge = document.createElement('span');
+                badge.className = 'medal-badge'; // Ensure this class exists in CSS
+                badge.innerText = medal;
+                medalsContainer.appendChild(badge);
+            });
+            console.log("✅ Medals loaded:", data.medals);
+        } else {
+            console.warn("⚠️ No medals found for this leader.");
+            medalsContainer.innerHTML = '<span style="color:#666; font-style:italic;">No decorations recorded.</span>';
+        }
     }
 
     // --- 4. Show Modal Animation ---

@@ -34,30 +34,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log("✅ Found data:", data);
 
-    // --- 1. Populate Basic Fields (FIXED IDS TO MATCH INDEX.HTML) ---
-    // Note: Ensure these IDs exist in your index.html modal structure
-    const nameEl = document.getElementById('modal-leader-name');
-    const roleEl = document.getElementById('modal-leader-role');
-    const imgEl = document.getElementById('modal-leader-img');
-    const bioEl = document.getElementById('modal-leader-bio'); // Assuming you added this ID
+    // --- 1. Populate Basic Fields (MATCHING YOUR INDEX.HTML IDS) ---
+    const nameEl = document.getElementById('modal-name');
+    const roleEl = document.getElementById('modal-role');
+    const imgEl = document.getElementById('modal-img');
+    const bioEl = document.getElementById('modal-bio');
     
     if(nameEl) nameEl.innerText = data.name;
     if(roleEl) roleEl.innerText = data.role;
     if(imgEl) imgEl.src = data.image;
     
-    // Optional fields if you add them to your HTML later
-    const primaryEl = document.getElementById('modal-leader-primary');
-    const missionsEl = document.getElementById('modal-leader-missions');
+    // Optional fields
+    const primaryEl = document.getElementById('modal-primary');
+    const stratagemEl = document.getElementById('modal-stratagem');
+    const missionsEl = document.getElementById('modal-missions');
+    const kdEl = document.getElementById('modal-kd');
+    const specialtyEl = document.getElementById('modal-specialty');
+    
     if(primaryEl) primaryEl.innerText = data.primary || "Unknown";
+    if(stratagemEl) stratagemEl.innerText = data.stratagem || "Unknown";
     if(missionsEl) missionsEl.innerText = data.missions || "0";
+    if(kdEl) kdEl.innerText = data.kd || "0.0";
+    if(specialtyEl) specialtyEl.innerText = data.specialty || "None";
 
     // --- 2. Populate Bio ---
     if (bioEl) {
       bioEl.innerText = data.bio || "No service record available.";
     }
 
-    // --- 3. Populate Medals (Only if the container exists in HTML) ---
-    const medalsContainer = document.getElementById('modal-leader-medals'); 
+    // --- 3. Populate Medals ---
+    const medalsContainer = document.getElementById('modal-medals'); 
     if (medalsContainer && data.medals) {
       medalsContainer.innerHTML = ''; // Clear old content
       data.medals.forEach(medal => {

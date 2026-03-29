@@ -57,6 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if(kdEl) kdEl.innerText = data.kd || "0.0";
     if(specialtyEl) specialtyEl.innerText = data.specialty || "None";
 
+    // Populate Specialty Planet
+    const planetEl = document.getElementById('modal-specialty-planet');
+    if(planetEl) planetEl.innerText = data.specialty_planet || "Classified";
+
+    // Populate Quote
+    const quoteEl = document.getElementById('modal-quote');
+    if(quoteEl) quoteEl.innerText = data.quote ? `"${data.quote}"` : "No recorded statement.";
+
     // --- 2. Populate Bio ---
     if (bioEl) {
       bioEl.innerText = data.bio || "No service record available.";

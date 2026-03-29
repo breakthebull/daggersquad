@@ -372,9 +372,7 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   text-align: center;
-  
-  // BOX STYLING
-  background: linear-gradient(135deg, var(--hd-gold), #b8860b); // Gold gradient
+  background: linear-gradient(135deg, $hd-gold, #b8860b); // Gold gradient
   padding: 6px 10px;
   margin: 4px;
   border-radius: 2px;
@@ -392,7 +390,8 @@
     transform: translateY(-2px);
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
     filter: brightness(1.1);
-  }}
+  }
+}
 }
 
 .modal-footer {

@@ -107,20 +107,20 @@ hubs:
 # --- SQUAD LEADERS ---
 
 leaders:
-  - name: "CMDR. VEX"
+  - name: "CMDR. Dagger-Actual"
     role: "SQUAD LEAD"
-    image: "vex.jpg"
+    image: "daggeractual.jpg"
     # Add these lines:
     profile:
-      favorite_primary: "AR-23 Liberator"
-      favorite_stratagem: "Orbital Laser"
-      missions_led: "450+"
-      k_d_ratio: "4.2"
-      specialty: "Strategy & Command"
-      medals: ["Legion of Merit", "Medal of Heroism", "Purple Heart"]
-      bio: "Known for calling orbital strikes on extraction zones 'just to be safe'."
-      specialty_planet: ""
-      quote: ""
+      favorite_primary: "AR-23P Liberator Penetrator"
+      favorite_stratagem: "Anti-material Rifle"
+      missions_led: "2100"
+      k_d_ratio: "5.1"
+      specialty: "Strategy, Command, Sniper"
+      medals: ["Terminid Killer", "Medal of Heroism", "Purple Heart"]
+      bio: "Known for stealthy operations, sniper, Record holder of 846 meter kill with anti-material Rifle. CQC Expert."
+      specialty_planet: "Sniper & CQC Expert."
+      quote: "The last thing you see & Dead before you hit the ground."
 
   - name: "LT. RAX"
     role: "TACTICS OFFICER"

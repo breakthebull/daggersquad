@@ -363,18 +363,36 @@
 
   .medal-badge {
   display: inline-block;
-  background: linear-gradient(135deg, var(--hd-gold), #b8860b);
-  color: #000;
-  font-family: var(--font-head);
-  font-size: 0.7rem;
-  padding: 4px 8px;
-  margin: 2px;
-  border-radius: 2px;
+  
+  // TEXT STYLING
+  color: #000; // Black text for readability on gold
+  font-family: var(--font-head); // Your sci-fi header font
+  font-size: 0.75rem;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
-  border: 1px solid #fff;
-}
+  text-align: center;
+  
+  // BOX STYLING
+  background: linear-gradient(135deg, var(--hd-gold), #b8860b); // Gold gradient
+  padding: 6px 10px;
+  margin: 4px;
+  border-radius: 2px;
+  
+  // BORDER & GLOW
+  border: 1px solid #fff; // White border as requested
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5); // Gold glow
+  
+  // SCI-FI SHAPE (Optional angled corners)
+  clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+  
+  // HOVER EFFECT
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    filter: brightness(1.1);
+  }
 }
 
 .modal-footer {

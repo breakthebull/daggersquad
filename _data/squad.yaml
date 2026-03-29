@@ -109,9 +109,8 @@ hubs:
 leaders:
   - name: "CMDR. Dagger-Actual"
     role: "SQUAD LEAD"
-    image: "daggeractual.jpg"
-    # Add these lines:
-    profile:
+    image: "daggeractual.jpg"  # <-- ONLY THE FILENAME! No folders.
+    profile:                   # <-- Must be indented exactly 2 spaces from 'image'
       favorite_primary: "AR-23P Liberator Penetrator"
       favorite_stratagem: "Anti-material Rifle"
       missions_led: "2100"

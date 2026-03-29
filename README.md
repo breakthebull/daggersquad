@@ -1,4 +1,11 @@
 # Dagger Squad Terminal | Helldivers 2 Clan Website
+<a href="https://jekyll-themes.com/breakthebull/daggersquad">
+  <img
+    src="https://img.shields.io/badge/featured%20on-JT-red.svg"
+    height="20"
+    alt="Jekyll Themes Shield"
+  />
+</a>
 
 | Home Dashboard | Intel Dossier |
 | :---: | :---: |

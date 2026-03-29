@@ -83,6 +83,7 @@ title: Home
         "kd": "{{ leader.profile.k_d_ratio | escape }}",
         "specialty": "{{ leader.profile.specialty | escape }}",
         "specialty_planet": "{{ leader.profile.specialty_planet | escape }}",
+        "bio": "{{ leader.profile.bio | escape }}",
         "quote": "{{ leader.profile.quote | escape }}"
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}

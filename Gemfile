@@ -6,6 +6,8 @@ gem "jekyll", "~> 4.3"
 # SCSS/Sass support
 gem "jekyll-sass-converter", "~> 3.0"
 
+gem "github-pages", group: :jekyll_plugins
+
 # Optional plugins (GitHub Pages supports these)
 group :jekyll_plugins do
   gem "jekyll-seo-tag"

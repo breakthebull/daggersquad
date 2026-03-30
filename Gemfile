@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 
 # Jekyll core
-gem "jekyll", "~> 4.3"
+gem "jekyll"
 
 # SCSS/Sass support
-gem "jekyll-sass-converter", "~> 3.0"
+gem "jekyll-sass-converter"
 
 gem "github-pages"
 
